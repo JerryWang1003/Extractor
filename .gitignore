@@ -1,0 +1,23 @@
+# ===== Mesh / Dataset =====
+*.xyz
+*.obj
+*.ply
+*.stl
+
+Construct_test/
+obj_files/
+xyz_files/
+prediction_results/
+Prediction labels/
+labels/
+
+# ===== Python =====
+__pycache__/
+*.pyc
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
