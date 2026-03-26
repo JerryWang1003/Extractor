@@ -5,15 +5,18 @@ import numpy as np
 from scipy.spatial import ConvexHull
 import open3d as o3d
 from sklearn.decomposition import PCA
+import time
 
 # obj 檔路徑
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
-obj_path = os.path.join(project_root, "obj_files", "Table_20_03.obj")
+obj_path = os.path.join(project_root, "obj_files", "Bedset_08_11.obj")
 xyz_path = os.path.join(project_root, "Construct_test")
-output_xyz = os.path.join(xyz_path, "S_Table_20_03.xyz")
+output_xyz = os.path.join(xyz_path, "S_bedset_08_11.xyz")
 mesh = trimesh.load(obj_path)
 vertices = np.array(mesh.vertices)
+
+start_time = time.perf_counter()
 
 # === Step 1: PCA 主成分分析 ===
 pca = PCA(n_components=3)
@@ -53,13 +56,18 @@ def sample_arc_length(points, n_samples):
 # -------------------------------------------------------
 # Step 3.5: 若 hull 點數 < 12 → 不抽樣，直接用原點
 # -------------------------------------------------------
-MAX_POINTS = 12
+# MAX_POINTS = 12
 
-if len(hull_points) >= MAX_POINTS:
-    print(f"ConvexHull 有 {len(hull_points)} 點 → 等距重採樣為 {MAX_POINTS} 點")
-    hull_points = sample_arc_length(hull_points, MAX_POINTS)
-else:
-    print(f"ConvexHull 只有 {len(hull_points)} 點 → 保留原始 hull 不重採樣")
+# if len(hull_points) >= MAX_POINTS:
+#     print(f"ConvexHull 有 {len(hull_points)} 點 → 等距重採樣為 {MAX_POINTS} 點")
+#     hull_points = sample_arc_length(hull_points, MAX_POINTS)
+# else:
+#     print(f"ConvexHull 只有 {len(hull_points)} 點 → 保留原始 hull 不重採樣")
+
+#hull_points = sample_arc_length(hull_points, MAX_POINTS)
+
+end_time = time.perf_counter()
+print(f"Execution Time: {end_time - start_time:.4f} seconds")
 
 # === Step 4: 可視化 ===
 mesh_o3d = o3d.geometry.TriangleMesh()

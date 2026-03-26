@@ -6,6 +6,7 @@ import os
 import numpy as np
 import trimesh
 import open3d as o3d
+import time
 
 # ------------------------------------------------------------
 # 設定路徑
@@ -13,15 +14,17 @@ import open3d as o3d
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 
-obj_path = os.path.join(project_root, "obj_files", "chair_026_06.obj")
+obj_path = os.path.join(project_root, "obj_files", "Cabinet_02_17.obj")
 xyz_path = os.path.join(project_root, "Construct_test")
-output_xyz = os.path.join(xyz_path, "S_chair_026_06.xyz")
+output_xyz = os.path.join(xyz_path, "S_Cabinet_02_17.xyz")
 
 # ------------------------------------------------------------
 # 讀取 mesh
 # ------------------------------------------------------------
 mesh = trimesh.load(obj_path, force='mesh')
 verts = np.asarray(mesh.vertices)
+
+start_time = time.perf_counter()
 
 print(f"[INFO] Loaded mesh with {len(verts)} vertices")
 
@@ -102,10 +105,8 @@ anchors_ordered = sort_anchors_clockwise(
     up=up
 )
 
-print(f"[INFO] Ordered anchors shape: {anchors_ordered.shape}")
-
 # ------------------------------------------------------------
-# Step 6: 旋轉座標（X 軸旋轉 90 度）
+# Step 6: 旋轉座標（X 軸旋轉 90 度）匯進Rhino
 # ------------------------------------------------------------
 theta = np.pi / 2
 R_x = np.array([
@@ -116,6 +117,9 @@ R_x = np.array([
 
 anchors_rot = anchors_ordered @ R_x.T
 
+end_time = time.perf_counter()
+print(f"Execution Time: {end_time - start_time:.4f} seconds")
+
 # ------------------------------------------------------------
 # Step 7: 輸出 XYZ
 # ------------------------------------------------------------
@@ -123,7 +127,7 @@ np.savetxt(output_xyz, anchors_rot, fmt="%.6f")
 print(f"[OK] Saved ordered anchor points to:\n{output_xyz}")
 
 # ------------------------------------------------------------
-# Step 8: Open3D 視覺化（檢查順序）
+# Step 8: Open3D 視覺化
 # ------------------------------------------------------------
 mesh_o3d = o3d.geometry.TriangleMesh()
 mesh_o3d.vertices = o3d.utility.Vector3dVector(verts)
@@ -140,4 +144,4 @@ for i, p in enumerate(anchors_ordered):
     s.paint_uniform_color([1, 0, 0])
     spheres.append(s)
 
-o3d.visualization.draw_geometries([mesh_o3d] + spheres)
+#o3d.visualization.draw_geometries([mesh_o3d] + spheres)
