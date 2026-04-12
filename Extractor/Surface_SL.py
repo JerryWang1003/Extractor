@@ -10,9 +10,9 @@ import time
 # obj 檔路徑
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
-obj_path = os.path.join(project_root, "obj_files", "Bedset_08_11.obj")
-xyz_path = os.path.join(project_root, "Construct_test")
-output_xyz = os.path.join(xyz_path, "S_bedset_08_11.xyz")
+obj_path = os.path.join(project_root, "obj_files", "Sofa_05_11.obj")
+xyz_path = os.path.join(project_root, "SL")
+output_xyz = os.path.join(xyz_path, "S_Sofa_05_11.xyz")
 mesh = trimesh.load(obj_path)
 vertices = np.array(mesh.vertices)
 
@@ -64,7 +64,7 @@ def sample_arc_length(points, n_samples):
 # else:
 #     print(f"ConvexHull 只有 {len(hull_points)} 點 → 保留原始 hull 不重採樣")
 
-#hull_points = sample_arc_length(hull_points, MAX_POINTS)
+# hull_points = sample_arc_length(hull_points, MAX_POINTS)
 
 end_time = time.perf_counter()
 print(f"Execution Time: {end_time - start_time:.4f} seconds")

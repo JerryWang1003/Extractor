@@ -14,9 +14,9 @@ import time
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 
-obj_path = os.path.join(project_root, "obj_files", "Cabinet_02_17.obj")
-xyz_path = os.path.join(project_root, "Construct_test")
-output_xyz = os.path.join(xyz_path, "S_Cabinet_02_17.xyz")
+obj_path = os.path.join(project_root, "obj_files", "BedSet_08_08.obj")
+xyz_path = os.path.join(project_root, "OB")
+output_xyz = os.path.join(xyz_path, "S_BedSet_08_08.xyz")
 
 # ------------------------------------------------------------
 # 讀取 mesh
@@ -24,7 +24,7 @@ output_xyz = os.path.join(xyz_path, "S_Cabinet_02_17.xyz")
 mesh = trimesh.load(obj_path, force='mesh')
 verts = np.asarray(mesh.vertices)
 
-start_time = time.perf_counter()
+start_time = time.perf_counter() # 量測時間
 
 print(f"[INFO] Loaded mesh with {len(verts)} vertices")
 
@@ -77,33 +77,74 @@ print(f"[INFO] Extracted {len(anchors)} unique anchors")
 # ------------------------------------------------------------
 # Step 5: 順時針排序（上層 → 下層）
 # ------------------------------------------------------------
-def sort_anchors_clockwise(anchors, center, right, forward, up):
-    data = []
+# def sort_anchors_clockwise(anchors, center, right, forward, up):
+#     data = []
 
-    for p in anchors:
+#     for p in anchors:
+#         v = p - center
+#         r = np.dot(v, right)
+#         f = np.dot(v, forward)
+#         u = np.dot(v, up)
+#         angle = np.arctan2(f, r)
+#         data.append((p, u, angle))
+
+#     top = [d for d in data if d[1] >= 0]
+#     bottom = [d for d in data if d[1] < 0]
+
+#     top_sorted = sorted(top, key=lambda x: -x[2])
+#     bottom_sorted = sorted(bottom, key=lambda x: -x[2])
+
+#     ordered = [d[0] for d in top_sorted + bottom_sorted]
+#     return np.array(ordered)
+
+# anchors_ordered = sort_anchors_clockwise(
+#     anchors,
+#     center=center,
+#     right=right,
+#     forward=forward,
+#     up=up
+# )
+# ------------------------------------------------------------
+# Step 5: 分層 + 各自排序（確保每層都能形成 X）
+# ------------------------------------------------------------
+def sort_layer(points, center, right, forward):
+    data = []
+    for p in points:
         v = p - center
         r = np.dot(v, right)
         f = np.dot(v, forward)
-        u = np.dot(v, up)
         angle = np.arctan2(f, r)
-        data.append((p, u, angle))
+        data.append((p, angle))
 
-    top = [d for d in data if d[1] >= 0]
-    bottom = [d for d in data if d[1] < 0]
+    # 逆時針排序
+    data_sorted = sorted(data, key=lambda x: x[1])
+    return np.array([d[0] for d in data_sorted])
 
-    top_sorted = sorted(top, key=lambda x: -x[2])
-    bottom_sorted = sorted(bottom, key=lambda x: -x[2])
 
-    ordered = [d[0] for d in top_sorted + bottom_sorted]
-    return np.array(ordered)
+# ===== 分層 =====
+top_pts = []
+bottom_pts = []
 
-anchors_ordered = sort_anchors_clockwise(
-    anchors,
-    center=center,
-    right=right,
-    forward=forward,
-    up=up
-)
+for p in anchors:
+    v = p - center
+    u = np.dot(v, up)
+
+    if u >= 0:
+        top_pts.append(p)
+    else:
+        bottom_pts.append(p)
+
+top_pts = np.array(top_pts)
+bottom_pts = np.array(bottom_pts)
+
+# ===== 各層排序 =====
+top_sorted = sort_layer(top_pts, center, right, forward)
+bottom_sorted = sort_layer(bottom_pts, center, right, forward)
+
+print(f"[INFO] Top: {len(top_sorted)}, Bottom: {len(bottom_sorted)}")
+
+# ===== 最終順序（先上再下）=====
+anchors_ordered = np.vstack([top_sorted, bottom_sorted])
 
 # ------------------------------------------------------------
 # Step 6: 旋轉座標（X 軸旋轉 90 度）匯進Rhino
@@ -144,4 +185,4 @@ for i, p in enumerate(anchors_ordered):
     s.paint_uniform_color([1, 0, 0])
     spheres.append(s)
 
-#o3d.visualization.draw_geometries([mesh_o3d] + spheres)
+o3d.visualization.draw_geometries([mesh_o3d] + spheres)

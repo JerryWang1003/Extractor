@@ -21,7 +21,7 @@ if ROOT_DIR not in sys.path:
 
 # 資料夾
 LABELS_DIR = ROOT_DIR            
-OBJ_DIR = os.path.join(ROOT_DIR, "obj_files")
+OBJ_DIR = os.path.join(ROOT_DIR, "obj_experiments")
 OUTPUT_DIR = os.path.join(ROOT_DIR, "prediction results")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -173,7 +173,7 @@ def build_feature_matrix(dset: GeomFeatureDataset):
 def train_and_eval(
     labels_csv=os.path.join(LABELS_DIR, "labels.csv"),
     mesh_dir=OBJ_DIR,
-    out_csv=os.path.join(OUTPUT_DIR, "prediction_1028.csv"),
+    out_csv=os.path.join(OUTPUT_DIR, "prediction_0330.csv"),
     num_classes=3,
     batch_size=32,
     num_epochs=40,
