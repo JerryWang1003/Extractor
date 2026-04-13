@@ -1,0 +1,97 @@
+file,prediction,ground_truth,error
+BedSet_08_01,A,A,
+BedSet_08_02,A,A,
+BedSet_08_03,CA,SL,x
+BedSet_08_04,CA,SL,x
+BedSet_08_05,CA,OB,x
+BedSet_08_06,OB   ,SL,x
+BedSet_08_07,OB   ,SL,x
+BedSet_08_08,CA,SL,x
+BedSet_08_09,OB   ,SL,x
+BedSet_08_10,OB   ,SL,x
+BedSet_08_11,SL,SL,
+BedSet_13_01,CA,OB,x
+BedSet_13_02,A,OB,x
+BedSet_13_03,CA,OB,x
+BedSet_13_04,A,A,
+BedSet_13_05,A,A,
+BedSet_13_06,A,A,
+BedSet_13_07,A,A,
+BedSet_13_08,A,A,
+BedSet_13_09,A,A,
+BedSet_13_10,A,A,
+BedSet_13_11,A,A,
+Cabinet_02_01,CA,OB,x
+Cabinet_02_02,CA,OB,x
+Cabinet_02_03,A,OB,x
+Cabinet_02_04,A,OB,x
+Cabinet_02_05,CA,OB,x
+Cabinet_02_06,CA,OB,x
+Cabinet_02_07,CA,OB,x
+Cabinet_02_08,CA,OB,x
+Cabinet_02_09,A,OB,x
+Cabinet_02_10,A,OB,x
+Cabinet_02_11,CA,OB,x
+Cabinet_02_12,CA,OB,x
+Cabinet_02_13,CA,OB,x
+Cabinet_02_14,CA,OB,x
+Cabinet_02_15,CA,OB,x
+Cabinet_02_16,CA,OB,x
+Cabinet_02_17,CA,OB,x
+Cabinet_12_01,CA,OB,x
+Cabinet_12_02,A,OB,x
+Cabinet_12_03,A,OB,x
+Cabinet_12_04,CA,OB,x
+Cabinet_12_05,OB   ,OB,x
+Cabinet_12_06,OB   ,OB,x
+Cabinet_12_07,OB   ,OB,x
+Chair_26_01,OB   ,SL,x
+Chair_26_02,OB   ,SL,x
+Chair_26_03,OB   ,SL,x
+Chair_26_04,A,A,
+Chair_26_05,A,A,
+Chair_26_06,OB   ,A,x
+Chair_26_07,CA,SL,x
+Chair_26_08,SL,SL,
+Chair_64_01,OB   ,SL,x
+Chair_64_02,OB   ,SL,x
+Chair_64_03,A,A,
+Chair_64_04,A,A,
+Chair_64_05,A,A,
+Chair_64_06,A,A,
+Chair_64_07,A,A,
+Chair_64_08,A,A,
+Sofa_05_01,OB   ,OB,x
+Sofa_05_02,CA,CA,
+Sofa_05_03,OB   ,OB,x
+Sofa_05_04,OB   ,CA,x
+Sofa_05_05,A,A,
+Sofa_05_06,OB   ,CA,x
+Sofa_05_07,OB   ,CA,x
+Sofa_05_08,OB   ,CA,x
+Sofa_05_09,SL,CA,x
+Sofa_05_10,OB   ,CA,x
+Sofa_05_11,OB   ,OB,x
+Sofa_05_12,OB   ,OB,x
+Sofa_05_13,A,CA,x
+Sofa_22_01,SL,SL,
+Sofa_22_02,SL,SL,
+Sofa_22_03,SL,SL,
+Sofa_22_04,A,SL,x
+Sofa_22_05,A,SL,x
+Sofa_22_06,CA,OB,x
+Sofa_22_07,OB   ,CA,x
+Sofa_22_08,OB   ,CA,x
+Sofa_22_09,OB   ,CA,x
+Sofa_22_10,OB   ,OB   ,
+Table_01_01,CA,SL,x
+Table_01_02,A,A,
+Table_01_03,A,A,
+Table_01_04,A,A,
+Table_01_05,A,A,
+Table_01_06,CA,SL,x
+Table_01_07,A,A,
+Table_01_08,A,A,
+Table_20_01,CA,A,x
+Table_20_02,CA,A,x
+Table_20_03,CA,SL,x
