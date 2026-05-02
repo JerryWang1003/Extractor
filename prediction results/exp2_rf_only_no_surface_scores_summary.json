@@ -1,0 +1,102 @@
+{
+  "experiment": "EXP2 RF-only, no probability routing",
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1641,
+  "groups": 102,
+  "validation_note": "Mixed StratifiedKFold: groups are not used for splitting.",
+  "class_counts": {
+    "OB": 614,
+    "M": 856,
+    "CA": 61,
+    "SL": 110
+  },
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "elongation",
+    "thickness_norm",
+    "compactness",
+    "rectangularity",
+    "axis_alignment",
+    "normal_disp_p95",
+    "local_surface_bending_mean",
+    "local_surface_bending_p95",
+    "hull_vertex_density",
+    "boundary_edge_cv",
+    "boundary_turning_std",
+    "perimeter_rect_ratio"
+  ],
+  "rf_params": {
+    "n_estimators": 500,
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "max_features": 0.5
+  },
+  "class_weight": {
+    "M": 1.0,
+    "OB": 1.0,
+    "SL": 3.0,
+    "CA": 8.0
+  },
+  "overall": {
+    "macro_f1": 0.9078705472370878,
+    "balanced_accuracy": 0.8948014934570093,
+    "confusion_matrix": {
+      "M": {
+        "M": 846,
+        "OB": 8,
+        "SL": 0,
+        "CA": 4
+      },
+      "OB": {
+        "M": 6,
+        "OB": 602,
+        "SL": 10,
+        "CA": 4
+      },
+      "SL": {
+        "M": 2,
+        "OB": 2,
+        "SL": 96,
+        "CA": 8
+      },
+      "CA": {
+        "M": 2,
+        "OB": 2,
+        "SL": 4,
+        "CA": 45
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.986013986013986,
+        "recall": 0.9883177570093458,
+        "f1": 0.9871645274212368,
+        "support": 856
+      },
+      {
+        "class": "OB",
+        "precision": 0.9678456591639871,
+        "recall": 0.9804560260586319,
+        "f1": 0.9741100323624595,
+        "support": 614
+      },
+      {
+        "class": "SL",
+        "precision": 0.8888888888888888,
+        "recall": 0.8727272727272727,
+        "f1": 0.8807339449541285,
+        "support": 110
+      },
+      {
+        "class": "CA",
+        "precision": 0.8490566037735849,
+        "recall": 0.7377049180327869,
+        "f1": 0.7894736842105263,
+        "support": 61
+      }
+    ]
+  }
+}

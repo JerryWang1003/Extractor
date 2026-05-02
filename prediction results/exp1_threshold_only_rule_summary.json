@@ -1,0 +1,96 @@
+{
+  "experiment": "Experiment 1: Threshold-only geometric routing_PRINT",
+  "mode": "threshold_only",
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1641,
+  "groups": 102,
+  "validation_note": "Mixed StratifiedKFold: groups are not used for splitting.",
+  "class_counts": {
+    "OB": 614,
+    "M": 856,
+    "CA": 61,
+    "SL": 110
+  },
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "elongation",
+    "thickness_norm",
+    "compactness",
+    "rectangularity",
+    "axis_alignment",
+    "normal_disp_p95",
+    "local_surface_bending_mean",
+    "local_surface_bending_std",
+    "local_surface_bending_p95",
+    "hull_vertex_density",
+    "boundary_edge_cv",
+    "boundary_turning_std",
+    "perimeter_rect_ratio",
+    "surface_complexity",
+    "sl_regular_surface_score"
+  ],
+  "rf_params": null,
+  "class_weight": null,
+  "overall": {
+    "macro_f1": 0.514879554118075,
+    "balanced_accuracy": 0.6205789767648826,
+    "confusion_matrix": {
+      "M": {
+        "M": 756,
+        "OB": 53,
+        "SL": 0,
+        "CA": 5
+      },
+      "OB": {
+        "M": 39,
+        "OB": 290,
+        "SL": 7,
+        "CA": 0
+      },
+      "SL": {
+        "M": 3,
+        "OB": 97,
+        "SL": 41,
+        "CA": 10
+      },
+      "CA": {
+        "M": 58,
+        "OB": 174,
+        "SL": 62,
+        "CA": 46
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.9287469287469288,
+        "recall": 0.883177570093458,
+        "f1": 0.9053892215568863,
+        "support": 856
+      },
+      {
+        "class": "OB",
+        "precision": 0.8630952380952381,
+        "recall": 0.4723127035830619,
+        "f1": 0.6105263157894737,
+        "support": 614
+      },
+      {
+        "class": "SL",
+        "precision": 0.271523178807947,
+        "recall": 0.37272727272727274,
+        "f1": 0.31417624521072796,
+        "support": 110
+      },
+      {
+        "class": "CA",
+        "precision": 0.13529411764705881,
+        "recall": 0.7540983606557377,
+        "f1": 0.22942643391521197,
+        "support": 61
+      }
+    ]
+  }
+}

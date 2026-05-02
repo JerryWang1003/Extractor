@@ -14,9 +14,9 @@ import time
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 
-obj_path = os.path.join(project_root, "obj_files", "BedSet_08_08.obj")
-xyz_path = os.path.join(project_root, "OB")
-output_xyz = os.path.join(xyz_path, "S_BedSet_08_08.xyz")
+obj_path = os.path.join(project_root, "obj_files", "Sofa_01_08.obj")
+xyz_path = os.path.join(project_root, "OB_test")
+output_xyz = os.path.join(xyz_path, "S_Sofa_01_08.xyz")
 
 # ------------------------------------------------------------
 # 讀取 mesh

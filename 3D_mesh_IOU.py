@@ -193,8 +193,8 @@ if __name__ == "__main__":
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    mesh_path = os.path.join(current_dir,"obj_files", "Sofa_05_11.obj")
-    skel_path = os.path.join(current_dir,"CA", "S_Sofa_05_11.xyz")
+    mesh_path = os.path.join(current_dir,"obj_files", "Sofa_22_03.obj")
+    skel_path = os.path.join(current_dir,"CA", "S_Sofa_22_03.xyz")
 
     mesh_pts = load_mesh_vertices(mesh_path)
     skel_pts = load_xyz(skel_path)

@@ -1,0 +1,98 @@
+{
+  "experiment": "EP2F simple RF + SL/CA boundary features",
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1641,
+  "groups": 102,
+  "validation_note": "Mixed StratifiedKFold: groups are not used for splitting.",
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "eig_ratio_r12",
+    "elongation",
+    "thickness_norm",
+    "aspect_ratio_xy",
+    "compactness",
+    "normal_disp_p95",
+    "rectangularity",
+    "axis_alignment",
+    "hull_vertex_density",
+    "boundary_edge_cv",
+    "boundary_turning_std",
+    "perimeter_rect_ratio",
+    "surface_complexity",
+    "sl_regular_surface_score"
+  ],
+  "best_params": {
+    "n_estimators": 500,
+    "max_depth": 30,
+    "min_samples_leaf": 2,
+    "max_features": 0.5
+  },
+  "best_class_weight": {
+    "M": 1.0,
+    "OB": 1.0,
+    "SL": 3.0,
+    "CA": 4.5
+  },
+  "overall": {
+    "macro_f1": 0.8980613231476149,
+    "balanced_accuracy": 0.8962581210918642,
+    "confusion_matrix": {
+      "M": {
+        "M": 837,
+        "OB": 11,
+        "SL": 0,
+        "CA": 2
+      },
+      "OB": {
+        "M": 13,
+        "OB": 593,
+        "SL": 13,
+        "CA": 2
+      },
+      "SL": {
+        "M": 1,
+        "OB": 7,
+        "SL": 94,
+        "CA": 9
+      },
+      "CA": {
+        "M": 5,
+        "OB": 3,
+        "SL": 3,
+        "CA": 48
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.9847058823529412,
+        "recall": 0.977803738317757,
+        "f1": 0.981242672919109,
+        "support": 856
+      },
+      {
+        "class": "OB",
+        "precision": 0.9549114331723028,
+        "recall": 0.9657980456026058,
+        "f1": 0.9603238866396762,
+        "support": 614
+      },
+      {
+        "class": "SL",
+        "precision": 0.8468468468468469,
+        "recall": 0.8545454545454545,
+        "f1": 0.8506787330316742,
+        "support": 110
+      },
+      {
+        "class": "CA",
+        "precision": 0.8135593220338984,
+        "recall": 0.7868852459016393,
+        "f1": 0.8,
+        "support": 61
+      }
+    ]
+  }
+}

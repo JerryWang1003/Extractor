@@ -1,0 +1,96 @@
+{
+  "experiment": "EXP1 threshold-only geometric routing without surface scores",
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1641,
+  "groups": 102,
+  "validation_note": "Mixed StratifiedKFold: groups are not used for splitting.",
+  "class_counts": {
+    "OB": 614,
+    "M": 856,
+    "CA": 61,
+    "SL": 110
+  },
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "elongation",
+    "thickness_norm",
+    "compactness",
+    "rectangularity",
+    "axis_alignment",
+    "normal_disp_p95",
+    "local_surface_bending_mean",
+    "local_surface_bending_p95",
+    "hull_vertex_density",
+    "boundary_edge_cv",
+    "boundary_turning_std",
+    "perimeter_rect_ratio"
+  ],
+  "rule_scores": [
+    "m_score",
+    "ob_score",
+    "ca_score",
+    "sl_score"
+  ],
+  "overall": {
+    "macro_f1": 0.5207098597556932,
+    "balanced_accuracy": 0.6438676929398164,
+    "confusion_matrix": {
+      "M": {
+        "M": 717,
+        "OB": 41,
+        "SL": 0,
+        "CA": 0
+      },
+      "OB": {
+        "M": 42,
+        "OB": 307,
+        "SL": 7,
+        "CA": 0
+      },
+      "SL": {
+        "M": 9,
+        "OB": 116,
+        "SL": 46,
+        "CA": 11
+      },
+      "CA": {
+        "M": 88,
+        "OB": 150,
+        "SL": 57,
+        "CA": 50
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.945910290237467,
+        "recall": 0.8376168224299065,
+        "f1": 0.8884758364312267,
+        "support": 856
+      },
+      {
+        "class": "OB",
+        "precision": 0.8623595505617978,
+        "recall": 0.5,
+        "f1": 0.6329896907216495,
+        "support": 614
+      },
+      {
+        "class": "SL",
+        "precision": 0.25274725274725274,
+        "recall": 0.41818181818181815,
+        "f1": 0.3150684931506849,
+        "support": 110
+      },
+      {
+        "class": "CA",
+        "precision": 0.14492753623188406,
+        "recall": 0.819672131147541,
+        "f1": 0.24630541871921183,
+        "support": 61
+      }
+    ]
+  }
+}

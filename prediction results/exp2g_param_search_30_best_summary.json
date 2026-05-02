@@ -1,0 +1,109 @@
+{
+  "experiment": "EP2G parameter search, 30 configs",
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1641,
+  "groups": 102,
+  "class_counts": {
+    "OB": 614,
+    "M": 856,
+    "CA": 61,
+    "SL": 110
+  },
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "elongation",
+    "thickness_norm",
+    "compactness",
+    "rectangularity",
+    "axis_alignment",
+    "hull_vertex_density",
+    "boundary_edge_cv",
+    "boundary_turning_std",
+    "perimeter_rect_ratio",
+    "local_surface_bending_mean",
+    "local_surface_bending_std",
+    "local_surface_bending_p95"
+  ],
+  "best_config_id": 22,
+  "best_selection_score": 1.4070044794048693,
+  "best_params": {
+    "n_estimators": 500,
+    "max_depth": 30,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt"
+  },
+  "best_class_weight": {
+    "M": 1.0,
+    "OB": 1.0,
+    "SL": 3.0,
+    "CA": 4.5
+  },
+  "best_metrics": {
+    "macro_f1": 0.9044023423841276,
+    "balanced_accuracy": 0.884500546952435,
+    "SL_f1": 0.8465116279069768,
+    "CA_f1": 0.8288288288288288,
+    "SL_precision": 0.8666666666666667,
+    "SL_recall": 0.8272727272727273,
+    "CA_precision": 0.92,
+    "CA_recall": 0.7540983606557377
+  },
+  "confusion_matrix": {
+    "M": {
+      "M": 837,
+      "OB": 9,
+      "SL": 0,
+      "CA": 1
+    },
+    "OB": {
+      "M": 16,
+      "OB": 601,
+      "SL": 17,
+      "CA": 5
+    },
+    "SL": {
+      "M": 2,
+      "OB": 3,
+      "SL": 91,
+      "CA": 9
+    },
+    "CA": {
+      "M": 1,
+      "OB": 1,
+      "SL": 2,
+      "CA": 46
+    }
+  },
+  "per_class": [
+    {
+      "class": "M",
+      "precision": 0.9881936245572609,
+      "recall": 0.977803738317757,
+      "f1": 0.9829712272460364,
+      "support": 856
+    },
+    {
+      "class": "OB",
+      "precision": 0.9405320813771518,
+      "recall": 0.9788273615635179,
+      "f1": 0.9592976855546688,
+      "support": 614
+    },
+    {
+      "class": "SL",
+      "precision": 0.8666666666666667,
+      "recall": 0.8272727272727273,
+      "f1": 0.8465116279069768,
+      "support": 110
+    },
+    {
+      "class": "CA",
+      "precision": 0.92,
+      "recall": 0.7540983606557377,
+      "f1": 0.8288288288288288,
+      "support": 61
+    }
+  ]
+}

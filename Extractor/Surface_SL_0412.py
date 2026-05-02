@@ -10,9 +10,9 @@ import time
 # obj 檔路徑
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
-obj_path = os.path.join(project_root, "obj_files", "Sofa_05_13.obj")
-xyz_path = os.path.join(project_root, "SL")
-output_xyz = os.path.join(xyz_path, "S_Sofa_05_13.xyz")
+obj_path = os.path.join(project_root, "obj_files", "Sofa_01_08.obj")
+xyz_path = os.path.join(project_root, "OB_test")
+output_xyz = os.path.join(xyz_path, "S_Sofa_01_08.xyz")
 mesh = trimesh.load(obj_path)
 vertices = np.array(mesh.vertices)
 

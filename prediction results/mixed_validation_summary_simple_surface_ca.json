@@ -1,0 +1,95 @@
+{
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1643,
+  "groups": 102,
+  "validation_note": "Mixed StratifiedKFold: groups are not used for splitting.",
+  "class_counts": {
+    "OB": 614,
+    "M": 855,
+    "CA": 55,
+    "SL": 119
+  },
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "eig_ratio_r12",
+    "eig_ratio_r23",
+    "elongation",
+    "thickness_norm",
+    "aspect_ratio_xy",
+    "aspect_ratio_yz",
+    "area_to_volume_ratio",
+    "compactness",
+    "occupancy",
+    "roughness",
+    "rectangularity",
+    "axis_alignment",
+    "concavity_score",
+    "irregularity_score",
+    "surface_complexity",
+    "ca_surface_score",
+    "sl_regular_surface_score",
+    "ob_regular_score"
+  ],
+  "overall": {
+    "macro_f1": 0.8582512757819946,
+    "balanced_accuracy": 0.8753668851650921,
+    "confusion_matrix": {
+      "M": {
+        "M": 832,
+        "OB": 10,
+        "SL": 1,
+        "CA": 1
+      },
+      "OB": {
+        "M": 16,
+        "OB": 590,
+        "SL": 16,
+        "CA": 2
+      },
+      "SL": {
+        "M": 1,
+        "OB": 5,
+        "SL": 87,
+        "CA": 6
+      },
+      "CA": {
+        "M": 6,
+        "OB": 9,
+        "SL": 15,
+        "CA": 46
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.985781990521327,
+        "recall": 0.9730994152046784,
+        "f1": 0.9793996468510888,
+        "support": 855
+      },
+      {
+        "class": "OB",
+        "precision": 0.9455128205128205,
+        "recall": 0.9609120521172638,
+        "f1": 0.9531502423263328,
+        "support": 614
+      },
+      {
+        "class": "SL",
+        "precision": 0.8787878787878788,
+        "recall": 0.7310924369747899,
+        "f1": 0.7981651376146789,
+        "support": 119
+      },
+      {
+        "class": "CA",
+        "precision": 0.6052631578947368,
+        "recall": 0.8363636363636363,
+        "f1": 0.7022900763358778,
+        "support": 55
+      }
+    ]
+  }
+}

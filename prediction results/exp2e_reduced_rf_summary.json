@@ -1,0 +1,113 @@
+{
+  "experiment": "EP2E reduced RF from exp2_best_rf_only_local_complexity",
+  "splitter": "StratifiedKFold_mixed",
+  "n_splits": 5,
+  "samples": 1641,
+  "groups": 102,
+  "validation_note": "Mixed StratifiedKFold: groups are not used for splitting.",
+  "class_counts": {
+    "OB": 614,
+    "M": 856,
+    "CA": 61,
+    "SL": 110
+  },
+  "removed_features": [
+    "eig_ratio_r23",
+    "aspect_ratio_yz",
+    "area_to_volume_ratio",
+    "occupancy",
+    "normal_disp_std",
+    "normal_disp_p90",
+    "concavity_score",
+    "irregularity_score",
+    "ca_surface_score",
+    "ob_regular_score"
+  ],
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "eig_ratio_r12",
+    "elongation",
+    "thickness_norm",
+    "aspect_ratio_xy",
+    "compactness",
+    "normal_disp_mean",
+    "normal_disp_p95",
+    "rectangularity",
+    "axis_alignment",
+    "surface_complexity",
+    "sl_regular_surface_score"
+  ],
+  "best_params": {
+    "n_estimators": 500,
+    "max_depth": 30,
+    "min_samples_leaf": 2,
+    "max_features": 0.5
+  },
+  "best_class_weight": {
+    "M": 1.0,
+    "OB": 1.0,
+    "SL": 3.0,
+    "CA": 4.5
+  },
+  "overall": {
+    "macro_f1": 0.9025108644987383,
+    "balanced_accuracy": 0.9068226568629367,
+    "confusion_matrix": {
+      "M": {
+        "M": 838,
+        "OB": 6,
+        "SL": 0,
+        "CA": 2
+      },
+      "OB": {
+        "M": 12,
+        "OB": 597,
+        "SL": 10,
+        "CA": 1
+      },
+      "SL": {
+        "M": 2,
+        "OB": 6,
+        "SL": 96,
+        "CA": 9
+      },
+      "CA": {
+        "M": 4,
+        "OB": 5,
+        "SL": 4,
+        "CA": 49
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.9905437352245863,
+        "recall": 0.9789719626168224,
+        "f1": 0.9847238542890717,
+        "support": 856
+      },
+      {
+        "class": "OB",
+        "precision": 0.9629032258064516,
+        "recall": 0.9723127035830619,
+        "f1": 0.9675850891410048,
+        "support": 614
+      },
+      {
+        "class": "SL",
+        "precision": 0.8495575221238938,
+        "recall": 0.8727272727272727,
+        "f1": 0.8609865470852018,
+        "support": 110
+      },
+      {
+        "class": "CA",
+        "precision": 0.7903225806451613,
+        "recall": 0.8032786885245902,
+        "f1": 0.7967479674796748,
+        "support": 61
+      }
+    ]
+  }
+}

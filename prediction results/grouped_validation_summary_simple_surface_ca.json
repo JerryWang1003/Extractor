@@ -1,0 +1,94 @@
+{
+  "splitter": "StratifiedGroupKFold",
+  "n_splits": 5,
+  "samples": 1646,
+  "groups": 102,
+  "class_counts": {
+    "OB": 601,
+    "M": 874,
+    "CA": 49,
+    "SL": 122
+  },
+  "feature_names": [
+    "linearity",
+    "planarity",
+    "eig_ratio_r12",
+    "eig_ratio_r23",
+    "elongation",
+    "thickness_norm",
+    "aspect_ratio_xy",
+    "aspect_ratio_yz",
+    "area_to_volume_ratio",
+    "compactness",
+    "occupancy",
+    "roughness",
+    "rectangularity",
+    "axis_alignment",
+    "concavity_score",
+    "irregularity_score",
+    "surface_complexity",
+    "ca_surface_score",
+    "sl_regular_surface_score",
+    "ob_regular_score"
+  ],
+  "overall": {
+    "macro_f1": 0.630316115798357,
+    "balanced_accuracy": 0.6342202351520615,
+    "confusion_matrix": {
+      "M": {
+        "M": 785,
+        "OB": 70,
+        "SL": 2,
+        "CA": 14
+      },
+      "OB": {
+        "M": 69,
+        "OB": 503,
+        "SL": 32,
+        "CA": 4
+      },
+      "SL": {
+        "M": 5,
+        "OB": 9,
+        "SL": 53,
+        "CA": 13
+      },
+      "CA": {
+        "M": 15,
+        "OB": 19,
+        "SL": 35,
+        "CA": 18
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.9012629161882894,
+        "recall": 0.8981693363844394,
+        "f1": 0.8997134670487106,
+        "support": 874
+      },
+      {
+        "class": "OB",
+        "precision": 0.8273026315789473,
+        "recall": 0.8369384359400999,
+        "f1": 0.8320926385442514,
+        "support": 601
+      },
+      {
+        "class": "SL",
+        "precision": 0.6625,
+        "recall": 0.4344262295081967,
+        "f1": 0.5247524752475248,
+        "support": 122
+      },
+      {
+        "class": "CA",
+        "precision": 0.20689655172413793,
+        "recall": 0.3673469387755102,
+        "f1": 0.2647058823529412,
+        "support": 49
+      }
+    ]
+  }
+}

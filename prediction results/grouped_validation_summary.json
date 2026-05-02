@@ -1,0 +1,106 @@
+{
+  "splitter": "StratifiedGroupKFold",
+  "n_splits": 5,
+  "samples": 1646,
+  "groups": 102,
+  "class_counts": {
+    "OB": 600,
+    "M": 873,
+    "CA": 49,
+    "SL": 122,
+    "A": 1,
+    "OB   ": 1
+  },
+  "overall": {
+    "macro_f1": 0.7162779081843719,
+    "balanced_accuracy": 0.46919195252134244,
+    "confusion_matrix": {
+      "M": {
+        "M": 809,
+        "OB": 54,
+        "SL": 4,
+        "CA": 5
+      },
+      "OB": {
+        "M": 54,
+        "OB": 512,
+        "SL": 35,
+        "CA": 12
+      },
+      "SL": {
+        "M": 7,
+        "OB": 30,
+        "SL": 74,
+        "CA": 11
+      },
+      "CA": {
+        "M": 3,
+        "OB": 4,
+        "SL": 9,
+        "CA": 21
+      }
+    },
+    "per_class": [
+      {
+        "class": "M",
+        "precision": 0.9266895761741123,
+        "recall": 0.9266895761741123,
+        "f1": 0.9266895761741123,
+        "support": 873
+      },
+      {
+        "class": "OB",
+        "precision": 0.8338762214983714,
+        "recall": 0.8533333333333334,
+        "f1": 0.8434925864909391,
+        "support": 600
+      },
+      {
+        "class": "SL",
+        "precision": 0.6065573770491803,
+        "recall": 0.6065573770491803,
+        "f1": 0.6065573770491803,
+        "support": 122
+      },
+      {
+        "class": "CA",
+        "precision": 0.5675675675675675,
+        "recall": 0.42857142857142855,
+        "f1": 0.4883720930232558,
+        "support": 49
+      }
+    ]
+  },
+  "fold_thresholds": [
+    {
+      "fold": 1,
+      "linearity_th": 0.9796949678299598,
+      "planarity_th": 0.06060606059046631,
+      "thickness_th": 0.5773502691118504
+    },
+    {
+      "fold": 2,
+      "linearity_th": 0.9594950715860432,
+      "planarity_th": 0.0404040403936442,
+      "thickness_th": 0.5773502691118504
+    },
+    {
+      "fold": 3,
+      "linearity_th": 0.9695950197080014,
+      "planarity_th": 0.060606060590466304,
+      "thickness_th": 0.5598547879904461
+    },
+    {
+      "fold": 4,
+      "linearity_th": 0.9796945478319479,
+      "planarity_th": 0.06060567216791378,
+      "thickness_th": 0.5773502691118504
+    },
+    {
+      "fold": 5,
+      "linearity_th": 0.9695950197080014,
+      "planarity_th": 0.0404040403936442,
+      "thickness_th": 0.5773502691118504
+    }
+  ]
+}
