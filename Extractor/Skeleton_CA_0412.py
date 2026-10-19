@@ -8,10 +8,6 @@ from tqdm import tqdm
 import time
 from utils import save_obj, save_txt, read_VD, winding_number
 
-# conda activate coverage_axis
-# cd ~/Coverage_Axis-main
-# python Coverage_Axis_plusplus_mesh.py
-
 start_time = time.perf_counter()
 
 def heuristic_alg(D, candidate, radius_list, reg_radius=1, reg=1, max_iter=1000, penalty='stand'):
@@ -20,7 +16,7 @@ def heuristic_alg(D, candidate, radius_list, reg_radius=1, reg=1, max_iter=1000,
     A = []
     grade = []
     for i in tqdm(range(max_iter)):
-        score = np.sum(D[S], axis=0).astype(float)  # summarize each col of subarray D[S]
+        score = np.sum(D[S], axis=0).astype(float)  
         score = (score - np.mean(score)) / np.std(score, ddof=1)
         if len(A) > 0:
             loss = compute_min_distances(candidate, candidate[A])
